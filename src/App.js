@@ -11,10 +11,21 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          {this.props.number ||
+            `<img
+            src=${logo} alt="logo" />`}
           <h1>Numbers Trivia</h1>
-          <input type="number" defaultValue={this.props.number} />
-          <button onClick={onRequestNumber()}>Click</button>
+          <p>{this.props.numberTrivia}</p>
+          <input type="number" />
+          {fetching ? (
+            <button className="btn btn-warning" disabled>
+              Fetching...
+            </button>
+          ) : (
+            <button className="btn btn-primary" onClick={onRequestNumber}>
+              Submit
+            </button>
+          )}
         </header>
       </div>
     );

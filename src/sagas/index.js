@@ -20,7 +20,7 @@ function fetchNumber() {
 function* workerSaga() {
   try {
     const response = yield call(fetchNumber);
-    const numberTrivia = response;
+    const numberTrivia = response.data;
 
     yield put({ type: API_CALL_SUCCESS, numberTrivia });
   } catch (error) {
