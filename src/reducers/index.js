@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   fetching: false,
+  number: 23,
   numberTrivia: null,
   error: null
 };
