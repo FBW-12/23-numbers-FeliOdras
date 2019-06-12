@@ -7,3 +7,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 const reduxDevTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+
+const composed = compose(
+  applyMiddleware(sagaMiddleware),
+  reduxDevTools
+);
