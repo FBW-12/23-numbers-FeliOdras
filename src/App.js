@@ -1,6 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import { connect } from "react-redux";
+import { API_CALL_REQUEST } from "./actions/actionTypes";
 
 function App() {
   return (
