@@ -12,3 +12,5 @@ const composed = compose(
   applyMiddleware(sagaMiddleware),
   reduxDevTools
 );
+
+export const store = createStore(reducer, composed);
