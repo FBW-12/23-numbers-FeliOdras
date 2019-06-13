@@ -1,4 +1,4 @@
-import React, { Component, useRef } from "react";
+import React, { Component, createRef } from "react";
 import "./App.css";
 
 import { connect } from "react-redux";
@@ -19,8 +19,7 @@ class App extends Component {
             <p>Click again for more trivia or enter a new number</p>
           )}
           <p>{this.props.numberTrivia}</p>
-          <NumberInput />
-          {/* <input ref={numRef} type="number" className="numberInput" />
+          <input type="number" className="numberInput" ref={this.numberRef} />
           {fetching ? (
             <button className="btn btn-warning" disabled>
               Fetching...
@@ -29,7 +28,7 @@ class App extends Component {
             <button className="btn btn-primary" onClick={onRequestNumber}>
               Submit
             </button>
-          )} */}
+          )}
         </header>
       </div>
     );
@@ -47,7 +46,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onRequestNumber: () => dispatch({ type: API_CALL_REQUEST })
+    onRequestNumber: num => dispatch({ type: API_CALL_REQUEST, number: num })
   };
 };
 

@@ -10,16 +10,17 @@ export function* watcherSaga() {
   yield takeLatest(API_CALL_REQUEST, workerSaga);
 }
 
-function fetchNumber() {
+function fetchNumber(num) {
   return axios({
     method: "get",
-    url: "https://numbers-api-proxy.dci-fbw121.now.sh/?number=23"
+    url: `https://numbers-api-proxy.dci-fbw121.now.sh/?number=${num}`
   });
 }
 
-function* workerSaga() {
+function* workerSaga(action) {
+  console.log(action.number);
   try {
-    const response = yield call(fetchNumber);
+    const response = yield call(fetchNumber, action.number);
     const numberTrivia = response.data;
 
     yield put({ type: API_CALL_SUCCESS, numberTrivia });

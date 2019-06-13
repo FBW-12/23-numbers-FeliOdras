@@ -14,7 +14,7 @@ const initialState = {
 export function reducer(state = initialState, action) {
   switch (action.type) {
     case API_CALL_REQUEST:
-      return { ...state, fetching: true, error: null };
+      return { ...state, fetching: true, error: null, number: action.number };
     case API_CALL_SUCCESS:
       return { ...state, fetching: false, numberTrivia: action.numberTrivia };
     case API_CALL_FAILURE:
